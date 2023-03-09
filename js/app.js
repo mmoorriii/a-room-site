@@ -132,15 +132,17 @@ $(document).ready(function () {
    });
 
    //----------------------------------------------------------------------------------------------------
-   $('.header__menu-burger').click(function () {
-      $('.header__navigation, .navigation__list').fadeIn('', function () {
-         $(this).addClass('open');
+   if ($(window).width() <= 1024) {
+      $('.header__menu-burger').click(function () {
+         $('.header__navigation, .navigation__list').fadeIn('', function () {
+            $(this).addClass('open');
+         });
       });
-   });
 
-   $('.btn__canceled, .header__navigation').click(function () {
-      $('.header__navigation, .navigation__list').fadeOut('', function () {
-         $(this).removeClass('open');
-      });
-   })
+      $('.btn__canceled, .header__navigation').click(function () {
+         $('.header__navigation, .navigation__list').fadeOut('', function () {
+            $(this).removeClass('open');
+         });
+      })
+   }
 });
