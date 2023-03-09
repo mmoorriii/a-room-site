@@ -1,23 +1,23 @@
 'use strict';
 
-/* Проверка поддержки webp, добавление класса webp или no-webp для HTML */
-function isWebp() {
-   // Проверка поддержки webp
-   function testWebP(callback) {
-      let imgWebp = new Image();
-      imgWebp.onload = webP.onerror = function () {
-         callback(imgWebp.height == 2);
-      };
-      imgWebp.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
-   }
-   // Добавление класса _webp или _no-webp для HTML
-   testWebP(function (support) {
-      let className = support === true ? 'webp' : 'no-webp';
-      document.documentElement.classList.add(className);
-   });
-}
+///* Проверка поддержки webp, добавление класса webp или no-webp для HTML */
+//function isWebp() {
+//   // Проверка поддержки webp
+//   function testWebP(callback) {
+//      let imgWebp = new Image();
+//      imgWebp.onload = webP.onerror = function () {
+//         callback(imgWebp.height == 2);
+//      };
+//      imgWebp.src = "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA";
+//   }
+//   // Добавление класса _webp или _no-webp для HTML
+//   testWebP(function (support) {
+//      let className = support === true ? 'webp' : 'no-webp';
+//      document.documentElement.classList.add(className);
+//   });
+//}
 
-isWebp();
+//isWebp();
 //------------------------------------------------------------------------------------
 $(document).ready(function () {
    $('.slider-preview__body').slick({
@@ -132,17 +132,19 @@ $(document).ready(function () {
    });
 
    //----------------------------------------------------------------------------------------------------
-   if ($(window).width() <= 1024) {
-      $('.header__menu-burger').click(function () {
+   $('.header__menu-burger').click(function () {
+      if ($(window).width() <= 1024) {
          $('.header__navigation, .navigation__list').fadeIn('', function () {
             $(this).addClass('open');
          });
-      });
+      }
+   });
 
-      $('.btn__canceled, .header__navigation').click(function () {
+   $('.btn__canceled, .header__navigation').click(function () {
+      if ($(window).width() <= 1024) {
          $('.header__navigation, .navigation__list').fadeOut('', function () {
             $(this).removeClass('open');
          });
-      })
-   }
+      }
+   })
 });
