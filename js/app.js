@@ -134,16 +134,20 @@ $(document).ready(function () {
    //----------------------------------------------------------------------------------------------------
    $('.header__menu-burger').click(function () {
       if ($(window).width() <= 1024) {
+
          $('.header__navigation, .navigation__list').fadeIn('', function () {
             $(this).addClass('open');
+            $('body').addClass('no-scroll');
          });
       }
    });
 
    $('.btn__canceled, .header__navigation').click(function () {
       if ($(window).width() <= 1024) {
+
          $('.header__navigation, .navigation__list').fadeOut('', function () {
             $(this).removeClass('open');
+            $('body').removeClass('no-scroll');
          });
       }
    })
